@@ -18,7 +18,8 @@ INSERT INTO facultad (id_facultad, nombre) VALUES
 (2, 'Derecho'),
 (3, 'Ciencias Empresariales'),
 (4, 'Psicología'),
-(5, 'Comunicación');
+(5, 'Comunicación'),
+(6, 'Ciencias de la Salud');
 
 INSERT INTO torneo (id_torneo, nombre, anio, semestre, fecha_inicio, fecha_fin, estado) VALUES
 (1, 'Torneo Interfacultades 2026-2', 2026, 2, '2026-10-05', '2026-12-18', 'en curso');
@@ -62,6 +63,20 @@ INSERT INTO jugador (ci, nombre, apellido, email, fecha_nacimiento, id_facultad,
 (4300004, 'Valentín', 'Quiroga',  'valentin.quiroga@ucu.edu.uy', '2002-11-29', 4, 'grado'),
 (4300005, 'Walter',   'Rivero',   'walter.rivero@ucu.edu.uy',    '1983-03-15', 4, 'funcionario'),
 (4300006, 'Héctor',   'Suárez',   'hector.suarez@ucu.edu.uy',    '1979-06-07', 4, 'docente'),
+-- Comunicación (facultad 5)
+(4400003, 'Federico', 'Vázquez',  'federico.vazquez@ucu.edu.uy', '2003-03-12', 5, 'grado'),
+(4400004, 'Maximiliano', 'Sosa',  'maximiliano.sosa@ucu.edu.uy', '2002-06-08', 5, 'grado'),
+(4400005, 'Thiago',   'Correa',   'thiago.correa@ucu.edu.uy',    '2004-02-19', 5, 'grado'),
+(4400006, 'Alejandro','Morales',  'alejandro.morales@ucu.edu.uy','1997-08-26', 5, 'posgrado'),
+(4400007, 'Gastón',   'Viera',    'gaston.viera@ucu.edu.uy',     '2001-10-15', 5, 'grado'),
+(4400008, 'Daniel',   'Bentancor','daniel.bentancor@ucu.edu.uy', '1984-01-30', 5, 'funcionario'),
+-- Ciencias de la Salud (facultad 6)
+(4500001, 'Felipe',   'Castro',   'felipe.castro@ucu.edu.uy',    '2002-05-16', 6, 'grado'),
+(4500002, 'Ezequiel', 'Duarte',   'ezequiel.duarte@ucu.edu.uy',  '2003-09-03', 6, 'grado'),
+(4500003, 'Julián',   'Machado',  'julian.machado@ucu.edu.uy',   '2001-04-27', 6, 'grado'),
+(4500004, 'Kevin',    'Pintos',   'kevin.pintos@ucu.edu.uy',     '2004-11-09', 6, 'grado'),
+(4500005, 'Mauricio', 'Cardozo',  'mauricio.cardozo@ucu.edu.uy', '1996-07-21', 6, 'posgrado'),
+(4500006, 'Fernando', 'Ramos',    'fernando.ramos@ucu.edu.uy',   '1982-12-04', 6, 'docente'),
 -- Sin inscribir en ningún equipo (Comunicación)
 (4400001, 'Camila',   'Techera',  'camila.techera@ucu.edu.uy',   '2003-05-05', 5, 'grado'),
 (4400002, 'Leonardo', 'Umpiérrez','leonardo.umpierrez@ucu.edu.uy','1981-09-21', 5, 'docente');
@@ -72,7 +87,9 @@ INSERT INTO equipo (id_equipo, nombre, id_torneo, id_facultad, ci_capitan) VALUE
 (1, 'Ingeniería FC',        1, 1, NULL),
 (2, 'Los Abogados',         1, 2, NULL),
 (3, 'Empresariales United', 1, 3, NULL),
-(4, 'Psico Sport',          1, 4, NULL);
+(4, 'Psico Sport',          1, 4, NULL),
+(5, 'Comunicación FC',  1, 5, NULL),
+(6, 'Salud Deportivo',  1, 6, NULL);
 
 INSERT INTO equipo_jugador_torneo (id_equipo, ci_jugador, id_torneo, numero_camiseta) VALUES
 (1, 4000001, 1, 1), (1, 4000002, 1, 7), (1, 4000003, 1, 9),
@@ -82,12 +99,18 @@ INSERT INTO equipo_jugador_torneo (id_equipo, ci_jugador, id_torneo, numero_cami
 (3, 4200001, 1, 10),(3, 4200002, 1, 8), (3, 4200003, 1, 9),
 (3, 4200004, 1, 4), (3, 4200005, 1, 2), (3, 4200006, 1, 1),
 (4, 4300001, 1, 10),(4, 4300002, 1, 7), (4, 4300003, 1, 6),
-(4, 4300004, 1, 5), (4, 4300005, 1, 3), (4, 4300006, 1, 1);
+(4, 4300004, 1, 5), (4, 4300005, 1, 3), (4, 4300006, 1, 1),
+(5, 4400003, 1, 10), (5, 4400004, 1, 7), (5, 4400005, 1, 9),
+(5, 4400006, 1, 5),  (5, 4400007, 1, 11), (5, 4400008, 1, 1),
+(6, 4500001, 1, 10), (6, 4500002, 1, 8), (6, 4500003, 1, 9),
+(6, 4500004, 1, 11), (6, 4500005, 1, 4), (6, 4500006, 1, 1);
 
 UPDATE equipo SET ci_capitan = 4000001 WHERE id_equipo = 1;
 UPDATE equipo SET ci_capitan = 4100001 WHERE id_equipo = 2;
 UPDATE equipo SET ci_capitan = 4200001 WHERE id_equipo = 3;
 UPDATE equipo SET ci_capitan = 4300001 WHERE id_equipo = 4;
+UPDATE equipo SET ci_capitan = 4400003 WHERE id_equipo = 5;
+UPDATE equipo SET ci_capitan = 4500001 WHERE id_equipo = 6;
 
 -- 4. PARTIDOS
 -- turno 1 = 18-19, turno 2 = 19-20, turno 3 = 20-21, turno 4 = 21-22
